@@ -1,0 +1,5 @@
+    *  ID (nº) de comanda
+    * Nom/codi de l'usuari
+    * Nom del producte
+    * Quantitat producte
+    * Preu producte 
