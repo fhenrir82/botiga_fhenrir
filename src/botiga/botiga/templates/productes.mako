@@ -12,6 +12,6 @@
           </tr>
           % endfor
       </table>
-
+		<a href="${request.route_url('benvinguts')}">Enrere</a>
    </body>
 </html>
