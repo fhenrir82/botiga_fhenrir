@@ -1,6 +1,9 @@
+import os
+here = os.path.dirname(os.path.abspath(__file__))
+
 def Productes():
     diccionari={}
-    fitxer='botiga/objectes.txt'
+    fitxer=here+'/objectes.txt'
     prods = open(fitxer,'r')
     for linia in prods:
         linia=linia.rstrip()

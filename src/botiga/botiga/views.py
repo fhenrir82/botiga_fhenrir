@@ -11,7 +11,7 @@ def my_view(request):
 def benvinguda_view(request):
     missatge = "Aleix's Shop"
     return{"miss":missatge}
-@view_config(route_name='productes', renderer='productes.mako')l
+@view_config(route_name='productes', renderer='productes.mako')
 def productes_view(request):
     pros=Productes()
     return {"products":pros}
