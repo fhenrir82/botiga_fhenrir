@@ -12,6 +12,7 @@ def main(global_config, **settings):
     config = Configurator(settings=settings)
     config.add_static_view('static', 'static', cache_max_age=3600)
     config.add_route('benvinguda', '/')
+    config.add_route('home', '/botiga')
     #config.add_route('benvinguda','/botiga') #productes=view, /botiga=URL
     config.add_route('productes','/productes')
     config.scan()
