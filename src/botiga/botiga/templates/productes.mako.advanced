@@ -19,6 +19,7 @@
 	</head>
    <body>
       <h1>Productes</h1>
+      <form action="${request.route_url('productes')}" method="POST">
       <table>
           <tr style="background-color:lightblue;">
 

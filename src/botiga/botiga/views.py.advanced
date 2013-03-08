@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+from pyramid.view import view_config
+from productes import Productes
+from productes import Dades
+# from fitxer import funcio
+
+@view_config(route_name='home', renderer='templates/mytemplate.pt')
+def my_view(request):
+    return {'project':'botiga'}
+
+@view_config(route_name='benvinguda', renderer='benvinguts.mako')
+def benvinguda_view(request):
+    missatge = "Aleix's Shop"
+    return{"miss":missatge}
+@view_config(route_name='productes', renderer='productes.mako')
+def productes_view(request):
+    pros=Productes()
+    llista=[]
+    comanda=Dades()
+    #dades=dadesProductes(here)
+    dades=dadesProductes()
+    productes=dades.getProductes()
+    if request.method == 'POST':
+        for id in products:
+            if request.POST.get(id)!='':
+                #print request.POST.get(prod)
+                llista.append(products[id]['producte'])
+                llista.append(request.POST.get(id))
+                Dades(llista)
+            llista=[]
+        return HTTPFound(location=request.route_url('comandes'))
+    return {"products":pros,"diccionari":comanda}
