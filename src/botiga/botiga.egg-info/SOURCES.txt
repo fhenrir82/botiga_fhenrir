@@ -4,7 +4,7 @@ README.txt
 setup.cfg
 setup.py
 botiga/__init__.py
-botiga/comandes.txt
+botiga/comanda.txt
 botiga/objectes.txt
 botiga/productes.py
 botiga/tests.py
