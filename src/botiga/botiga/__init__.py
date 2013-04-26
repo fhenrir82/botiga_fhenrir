@@ -25,7 +25,7 @@ def main(global_config, **settings):
     #el here serveix per a poder saber a quina ruta es troba l'arxiu
     
     #amb aquesta linia serveix per no tenir problemes amb els templates
-    config = Configurator(settings=settings)
+    #config = Configurator(settings=settings)
     config.add_static_view('static', 'static', cache_max_age=3600)
     config.add_route('benvinguda', '/')
     config.add_route('home', '/home')
