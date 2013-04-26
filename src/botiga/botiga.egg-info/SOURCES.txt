@@ -5,8 +5,10 @@ setup.cfg
 setup.py
 botiga/__init__.py
 botiga/comanda.txt
+botiga/models.py
 botiga/objectes.txt
 botiga/productes.py
+botiga/security.py
 botiga/tests.py
 botiga/views.py
 botiga.egg-info/PKG-INFO
@@ -26,5 +28,6 @@ botiga/static/pyramid-small.png
 botiga/static/pyramid.png
 botiga/static/transparent.gif
 botiga/templates/benvinguts.mako
+botiga/templates/login.mako
 botiga/templates/mytemplate.pt
 botiga/templates/productes.mako
