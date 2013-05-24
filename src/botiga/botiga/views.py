@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from pyramid.httpexceptions import HTTPFound
-
+from pyramid.interfaces import IDict
 from pyramid.view import (
     view_config,
     forbidden_view_config,
@@ -12,28 +12,33 @@ from pyramid.security import (
 )
 from .security import comprova_usuari
 
-from productes import Productes
+#from productes import Productes
+#from productes import Guardar
+from productes import *
 # from fitxer import funcio
 
-@view_config(route_name='home', renderer='templates/mytemplate.pt', permission='admin')
+@view_config(route_name='home', renderer='templates/mytemplate.pt', permission='public')
 def my_view(request):
     return {'project':'botiga','logged_in':authenticated_userid(request)}
-
 @view_config(route_name='benvinguda', renderer='benvinguts.mako', permission='public')
 def benvinguda_view(request):
     missatge = "Aleix's Shop"
-    return{"miss":missatge,'logged_in':authenticated_userid(request)}
-@view_config(route_name='productes', renderer='productes.mako', permission='admin')
+    return{"miss":missatge,'pagina':'Benvinguts','logged_in':authenticated_userid(request)}
+@view_config(route_name='productes', renderer='productes.mako', permission='registrar')
 def productes_view(request):
     pros=Productes()
-    return {"products":pros,'logged_in':authenticated_userid(request)}
-   # aqui aniriem als arxius o la base de dades a buscar la informació
-   # així ho simulem, manera alternativa cutre
-   #proj = "Botigueta Pro"
-   #prod = [ 'pepino' , 'enciam' , 'plàtan' ]
-   #preus = { 'pepino':'2€/kg', 'enciam':'1€/peça', 'plàtan':'2.5€/kg' }
-   # els retornarem amb:
-   #return { "projecte":proj, "productes":prod, "preus":preus }
+
+    return {"products":pros,'pagina':'Realitzi la comanda','logged_in':authenticated_userid(request)} 
+@view_config(route_name='comanda', renderer='items.mako', permission='registrar')
+def items_view(request):
+    comanda= Guardar(request,authenticated_userid(request))
+    numcomanda=comanda[0][0]
+    return{"ncmd":numcomanda,"cmd":comanda,'pagina':'Comanda:','logged_in':authenticated_userid(request)}  
+@view_config(route_name='informacio', renderer='informacio.mako', permission='public')
+def informacio_view(request):
+    veure=RetComanda()
+    print veure
+    return{'pagina':'Informacio','llistat':veure,'logged_in':authenticated_userid(request)}
 
 
 # aquest decorator és per establir la ruta per /login
@@ -72,7 +77,8 @@ def login(request):
         login = login,
         password = password,
         user = authenticated_userid(request), # afegim usuari autenticat si l'hi ha
-        )
+        pagina='Realitzi la comanda')
+    
     
 
 @view_config(route_name='logout')

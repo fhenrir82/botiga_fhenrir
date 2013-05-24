@@ -28,6 +28,9 @@ botiga/static/pyramid-small.png
 botiga/static/pyramid.png
 botiga/static/transparent.gif
 botiga/templates/benvinguts.mako
+botiga/templates/informacio.mako
+botiga/templates/items.mako
 botiga/templates/login.mako
+botiga/templates/maqueta.mako
 botiga/templates/mytemplate.pt
 botiga/templates/productes.mako

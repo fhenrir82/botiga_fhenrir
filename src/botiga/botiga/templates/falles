@@ -1,18 +1,26 @@
-<%inherit file="maqueta.mako" />
+
+	  <title>${miss}</title>
+<html>
+	<head>
 		<script language="Javascript">
-			function suma(objecte){
-				var valor=document.getElementById(objecte).value;
-				valor++;
-				document.getElementById(objecte).value=valor; 
-				
-			}
-			function resta(objecte){
-				var valor=document.getElementById(objecte).value;
-				valor--;
-				document.getElementById(objecte).value=valor; 
-				
-			}
+
+        
+        function suma(objecte){
+        var valor=document.getElementById(objecte).value;
+        valor++;
+        document.getElementById(objecte).value=valor; 
+            
+        }
+        function resta(objecte){
+        var valor=document.getElementById(objecte).value;
+        valor--;
+        document.getElementById(objecte).value=valor; 
+            
+        }
         </script>
+	</head>
+   <body>
+      <h1>Productes</h1>
       <table>
 		<form id="comanda" method="POST" action="${request.route_url('comanda')}">
           <tr style="background-color:lightblue;">
@@ -38,5 +46,8 @@
       </table>
       </br>
       </br>
+       <div id='comanda' name='comanda'>La seva comanda</div>
       </br>
-<a href="${request.route_url('benvinguda')}">Enrere</a>
+		<a href="${request.route_url('benvinguda')}">Enrere</a>
+   </body>
+</html>

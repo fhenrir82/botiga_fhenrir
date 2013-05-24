@@ -1,36 +1,46 @@
 # -*- coding: utf-8 -*-
+import os
+import logging
+
 from pyramid.config import Configurator
+
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 
-from .security import groupfinder    
+from .security import groupfinder
 from .models import RootFactory
 
-import os
+from pyramid.events import NewRequest
+from pyramid.events import subscriber
+from pyramid.events import ApplicationCreated
+from pyramid.httpexceptions import HTTPFound
+from pyramid.session import UnencryptedCookieSessionFactoryConfig
+from pyramid.view import view_config
+logging.basicConfig()
+log = logging.getLogger(__file__)
+
 here = os.path.dirname(os.path.abspath(__file__))
 
 def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """
     
+    #settings['mako.directories'] = os.path.join(here, 'templates')
     settings['mako.directories'] = os.path.join(here, 'templates')
-        # afegit del auth module
-    authn_policy = AuthTktAuthenticationPolicy(
-        'sosecret', callback=groupfinder, hashalg='sha512')
+    authn_policy = AuthTktAuthenticationPolicy('sosecret', callback=groupfinder, hashalg='sha512')
     authz_policy = ACLAuthorizationPolicy()
     config = Configurator(root_factory='.models.RootFactory', settings=settings)
-    #config = Configurator(settings=settings)
+
     config.set_authentication_policy(authn_policy)
     config.set_authorization_policy(authz_policy)
-    #el here serveix per a poder saber a quina ruta es troba l'arxiu
-    
-    #amb aquesta linia serveix per no tenir problemes amb els templates
-    #config = Configurator(settings=settings)
+
+    #config.add_static_view('static', os.path.join(here, 'static'))
     config.add_static_view('static', 'static', cache_max_age=3600)
-    config.add_route('benvinguda', '/')
-    config.add_route('home', '/home')
-    #config.add_route('benvinguda','/botiga') #productes=view, /botiga=URL
+    config.add_route('benvinguda','/')
+    config.add_route('home','/home')
     config.add_route('productes','/productes')
+    config.add_route('comanda','/comanda')
+    config.add_route('informacio','/informacio')
     config.add_route('login', '/login')
     config.add_route('logout', '/logout')
     config.scan()

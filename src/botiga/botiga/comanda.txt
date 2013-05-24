@@ -1,0 +1,6 @@
+usuari:normal/ NumComanda:28/ Idproducte:02/ producte:taronges/ unitats:20/ quantitat:2/ preu:03
+usuari:normal/ NumComanda:28/ Idproducte:03/ producte:sindries/ unitats:16/ quantitat:2/ preu:18
+usuari:normal/ NumComanda:29/ Idproducte:02/ producte:taronges/ unitats:20/ quantitat:2/ preu:03
+usuari:normal/ NumComanda:29/ Idproducte:03/ producte:sindries/ unitats:16/ quantitat:2/ preu:18
+usuari:normal/ NumComanda:29/ Idproducte:01/ producte:melons/ unitats:04/ quantitat:2/ preu:10
+usuari:normal/ NumComanda:29/ Idproducte:04/ producte:cocos/ unitats:08/ quantitat:2/ preu:07
