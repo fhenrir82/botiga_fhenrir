@@ -61,7 +61,9 @@ def RetComanda():
 			tmp,unitats=llista[4].split(':')
 			tmp,quantitat=llista[5].split(':')
 			tmp,preu=llista[6].split(':')
-			diccionari.update({numcomanda:{'idprod':idprod,'producte':producte, 'unitats':unitats,'quantitat':quantitat, 'preu':preu}})
+			#print {'usuari':usuari,'numcomanda':numcomanda,'idprod':idprod,'producte':producte, 'unitats':unitats,'quantitat':quantitat, 'preu':preu}
+			#diccionari.update({numcomanda:{'idprod':idprod,'producte':producte, 'unitats':unitats,'quantitat':quantitat, 'preu':preu}})
+			diccionari.update({usuari:{'numcomanda':numcomanda,'idprod':idprod,'producte':producte, 'unitats':unitats,'quantitat':quantitat, 'preu':preu}})
 			#numcomanda,idprod,producte,unitats,quantitat,preu=linia.split('/ ')
 		#diccionari.update({numcomanda:{'idprod':idprod,'producte':producte, 'unitats':unitats,'quantitat':quantitat, 'preu':preu}})
 		#print diccionari

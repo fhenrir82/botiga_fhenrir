@@ -37,7 +37,8 @@ def items_view(request):
 @view_config(route_name='informacio', renderer='informacio.mako', permission='public')
 def informacio_view(request):
     veure=RetComanda()
-    print veure
+    print "------"
+    print veure[1]
     return{'pagina':'Informacio','llistat':veure,'logged_in':authenticated_userid(request)}
 
 

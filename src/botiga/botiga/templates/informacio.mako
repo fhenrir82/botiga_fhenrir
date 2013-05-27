@@ -3,16 +3,16 @@
 	
 		<td> Codi</td><td> Producte</td><td> Stock</td><td> Quantitat</td><td> Preu €/Kg</td><td>Total</td>
 	</tr>
-	% for id in llistat:
+	% for i in llistat:
 	<tr>
 	
 		
-		<td name='id'> ${llistat[id]["idprod"]}</td>
-		<td name='nom'> ${llistat[id]["idprod"]}</td>
-		<td name='unitats'> ${llistat[id]["idprod"]}</td>
-		<td name='preu'> ${llistat[id]["idprod"]}</td>
-		<td name='quantitat'> ${llistat[id]["idprod"]}</td>
-		<td name='total'> ${llistat[id]["idprod"]}</td>
+		<td name='id'> ${i}</td></br>
+		<td name='nom'> ${llistat}</td>
+		<td name='unitats'> ${llistat[i]}</td>
+		<td name='preu'> ${llistat[i]}</td>
+		<td name='quantitat'> ${llistat[i]}</td>
+		<td name='total'> ${llistat[i]}</td>
 	</tr>
 		
 	% endfor
